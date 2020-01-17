@@ -2,8 +2,8 @@
 #@Author    :zhounan
 # @FileName: main.py
 #import numpy as np
-from utils.data import Data
-import camel
+from camel_utils.data import Data
+from camel_src import camel
 import numpy as np
 
 def train_image():

@@ -24,15 +24,11 @@ def train_val():
     camel_GPU.train_val(dataset, x, y, rho_list, alpha_list, alpha_ban_list, lam2_list)
 
 def train():
-    dataset = "doc2vec"
+    dataset = "doc2vec/it_1"
     data = Data(dataset, label_type=0, path="/home/rleating/kdd2020/dataset/")
     x, y, x_test, y_test = data.load_data_separated()
-    camel_GPU.train(x, y, rho=1, alpha=0.1, alpha_ban=0.5, lam2=0.1, x_test=x_test, y_test=y_test)
+    camel_GPU.train(x, y, rho=1, alpha=0.2, alpha_ban=0.5, lam2=0.001, x_test=x_test, y_test=y_test)
 
 
 if __name__ == '__main__':
     train()
-    # train_val()
-    #train_image()
-
-

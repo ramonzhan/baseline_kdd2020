@@ -9,6 +9,9 @@ from tqdm import tqdm
 from lstm.datacenter import DataCenter
 import random
 import gc
+from sklearn.svm import SVC
+from sklearn.linear_model import LogisticRegression
+from sklearn.externals import joblib
 
 
 def set_seed(seed):
@@ -23,15 +26,17 @@ set_seed(214)
 
 def parse_args():
     parser = ArgumentParser(formatter_class=ArgumentDefaultsHelpFormatter, conflict_handler="resolve")
+    parser.add_argument("--doc2vec", help="if use doc2vec pretrained embedding", type=int, default=1)
+    parser.add_argument("--svm", type=int, default=0)
     parser.add_argument("--root_dir", help="the root dir", type=str, default="../../")
     parser.add_argument("--dataset", help="the dir of all the used datasets", type=str, default="dataset")
     parser.add_argument("--results", help="the results dir", type=str, default="results")
-    parser.add_argument("--data_num", help="the used dataset dir", type=str, default="toy")
+    parser.add_argument("--data_num", help="the used dataset dir", type=str, default="it_1")
     # data
     parser.add_argument("--traindict", help="train, key-jd idx, value-skill idx list", type=str, default="skills.pkl")
     parser.add_argument("--testdict", help="test, key-jd idx, value-skill idx list", type=str, default="skills.pkl")
     parser.add_argument("--jdcontent", help="key-jd idx, value-list of token idx", type=str, default="jobdesc.pkl")
-    parser.add_argument("--scontent",help="key-s idx, value-list of token idx", type=str, default="skill_vocab.pkl")
+    parser.add_argument("--scontent", help="key-s idx, value-list of token idx", type=str, default="skill_vocab.pkl")
     parser.add_argument("--vocab", type=str, default="vocab_token.pkl")
     # network parameters
     parser.add_argument("--wv_dim", help="the dimention of the word embedding", type=int, default=128)
@@ -46,7 +51,7 @@ def parse_args():
     return args
 
 
-print("baseline experiment, lstm")
+print("baseline experiment, br")
 def around(number, deci=3):
     return np.around(number, decimals=deci)
 
@@ -70,10 +75,10 @@ def fetch(content, ids, max_len, pad):
     return code, src_seq_len
 
 
-def main(args):
+def main_lstm(args):
     # dir
     results_dir = os.path.join(args.root_dir, args.results)
-    model_args = "baseline_lstmbr".format(args.enc_dim)
+    model_args = "baseline_lstmbr"
     results_dir = os.path.join(results_dir, model_args)
 
     if not os.path.exists(results_dir):
@@ -130,12 +135,40 @@ def main(args):
 
         avg_loss.clear()
         gc.collect()
-#
-#
+
+
+def main_svm(args):
+    results_dir = os.path.join(args.root_dir, args.results)
+    model_args = "baseline_svmbr"
+    results_dir = os.path.join(results_dir, model_args)
+    model_dir = os.path.join(args.root_dir, "models")
+    if not os.path.exists(results_dir):
+        os.mkdir(results_dir)
+
+    dataset_dir = os.path.join(args.root_dir, args.dataset, "doc2vec", args.data_num)
+    trx_dir, try_dir = os.path.join(dataset_dir, "train_x.npy"), os.path.join(dataset_dir, "train_y.npy")
+    tex_dir, tey_dir = os.path.join(dataset_dir, "test_x.npy"), os.path.join(dataset_dir, "test_y.npy")
+    tr_x, tr_y, te_x, te_y = np.load(trx_dir), np.load(try_dir), np.load(tex_dir), np.load(tey_dir)
+    label_dim = tr_y.shape[1]
+    assert label_dim == te_y.shape[1]
+    clf_list = []
+    start = time.time()
+    for i in range(label_dim):
+        clf = LogisticRegression()
+        clf.fit(tr_x, tr_y[:, i].ravel())
+        clf_list.append(clf)
+        minute = np.around((time.time() - start) / 60, decimals=4)
+        print("已训练第[{}]个标签，用时[{}] min".format(i + 1, minute))
+
+    joblib.dump(clf_list, model_dir + '/br.pkl')
+
+
 if __name__ == "__main__":
     args = parse_args()
-    if torch.cuda.is_available():
-        device_id = torch.cuda.current_device()
-        print('using device', torch.cuda.get_device_name(device_id))
-
-    main(args)
+    if not args.doc2vec:   # 端到端训练
+        if torch.cuda.is_available():
+            device_id = torch.cuda.current_device()
+            print('using device', torch.cuda.get_device_name(device_id))
+        main_lstm(args)
+    else:
+        main_svm(args)

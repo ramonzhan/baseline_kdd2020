@@ -63,8 +63,8 @@ def x_matrix(raw_x, dim=256, epochs=50):
 
 def main():
     # dir
-    data_path = "/home/rleating/kdd2020/dataset/toy"
-    save_path = "/home/rleating/kdd2020/dataset/doc2vec"
+    data_path = "/home/rleating/kdd2020/dataset/it_1"
+    save_path = "/home/rleating/kdd2020/dataset/doc2vec/it_1"
     tr_x, tr_y, te_x, te_y, skill_num = load_data(data_path)
     # label
     mat_tr_y, mat_te_y = y_matrix(tr_y, skill_num), y_matrix(te_y, skill_num)    # convert to matrix
