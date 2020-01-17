@@ -11,7 +11,7 @@ def predict(x_test):
     chains_order_list = joblib.load(model_dir + '/chains_order_list.pkl')
     clf_list = joblib.load(model_dir + '/ecc.pkl')
 
-    label_dim = len(clf_list)
+    label_dim = len(chains_order_list[0])
     number_of_chains = len(chains_order_list)
     y_ensemble = np.zeros((number_of_chains, x_test.shape[0], label_dim))
     for i in range(number_of_chains):
@@ -44,5 +44,5 @@ if __name__ == '__main__':
     ranking_loss = metrics.label_ranking_loss(y_test, pred_prob)
     micro_auc = metrics.roc_auc_score(y_test, pred_prob, average="micro")
 
-    print("CC model: \n micro_f1:[{}], hamming_loss:[{}], ranking_loss:[{}], micro_auc:[{}]"
+    print("ECC model: \n micro_f1:[{}], hamming_loss:[{}], ranking_loss:[{}], micro_auc:[{}]"
           .format(micro_f1, hamming_loss, ranking_loss, micro_auc))

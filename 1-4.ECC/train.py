@@ -53,20 +53,20 @@ def main_svm(args):
     clf_list = []
     start = time.time()
 
-    number_of_chains = 10
+    number_of_chains = 2
     subset_proportion = 0.75
     chains_order_list = []
-    for i in range(number_of_chains):
+    for _, i in enumerate(range(number_of_chains)):
         clf_list_i = []
         chains_order = random.sample(range(label_dim), label_dim)
         chains_order_list.append(chains_order)
-        for j in chains_order:
+        for label_idx, j in enumerate(chains_order):
             clf = LogisticRegression()
             clf.fit(tr_x, tr_y[:, j].ravel())
             tr_x = np.c_[tr_x, tr_y[:, j]]
             clf_list_i.append(clf)
             minute = np.around((time.time() - start) / 60, decimals=4)
-            print("已训练第[{}]个标签，用时[{}] min".format(j + 1, minute))
+            print("已训练第[{}]个标签，用时[{}] min".format(label_idx + 1, minute))
         minute = np.around((time.time() - start) / 60, decimals=4)
         clf_list.append(clf_list_i)
         print("<--------------------------->\n已训练第[{}]个链，用时[{}] min".format(i + 1, minute))

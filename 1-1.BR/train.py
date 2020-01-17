@@ -9,9 +9,11 @@ from tqdm import tqdm
 from lstm.datacenter import DataCenter
 import random
 import gc
-from sklearn.svm import SVC
+from torch import nn
 from sklearn.linear_model import LogisticRegression
 from sklearn.externals import joblib
+from sklearn import metrics
+
 
 
 def set_seed(seed):
@@ -54,6 +56,31 @@ def parse_args():
 print("baseline experiment, br")
 def around(number, deci=3):
     return np.around(number, decimals=deci)
+
+
+class SingleClassClassifierModule(nn.Module):
+    def __init__(self, num_units, input_dim, gpu):
+        super(SingleClassClassifierModule, self).__init__()
+        self.num_units = num_units
+        self.gpu = gpu
+        self.dense0 = nn.Linear(input_dim, num_units).to(gpu)
+        self.dense1 = nn.Linear(num_units, 10).to(gpu)
+        self.output = nn.Linear(10, 1).to(gpu)
+        self.sigmoid = nn.Sigmoid()
+        self.loss_fn = nn.BCELoss(reduction="sum")
+        self.activate = nn.Tanh()
+    def forward(self, X):
+        X = torch.Tensor(X).to(self.gpu)
+        X = self.activate(self.dense0(X))
+        X = self.activate(self.dense1(X))
+        X = self.sigmoid(self.output(X))
+        return X
+
+    def loss(self, X, target):
+        pred = self.forward(X).squeeze()
+        target = torch.Tensor(target).to(self.gpu)
+        loss = self.loss_fn(pred, target)
+        return loss
 
 
 def fetch(content, ids, max_len, pad):
@@ -163,12 +190,58 @@ def main_svm(args):
     joblib.dump(clf_list, model_dir + '/br.pkl')
 
 
+def main_nn(args):
+    gpu = torch.device('cuda', args.gpu_id)
+    results_dir = os.path.join(args.root_dir, args.results)
+    model_args = "baseline_br"
+    results_dir = os.path.join(results_dir, model_args)
+    model_dir = os.path.join(args.root_dir, "models")
+    if not os.path.exists(results_dir):
+        os.mkdir(results_dir)
+
+    dataset_dir = os.path.join(args.root_dir, args.dataset, "doc2vec", args.data_num)
+    trx_dir, try_dir = os.path.join(dataset_dir, "train_x.npy"), os.path.join(dataset_dir, "train_y.npy")
+    tex_dir, tey_dir = os.path.join(dataset_dir, "test_x.npy"), os.path.join(dataset_dir, "test_y.npy")
+    tr_x, tr_y, te_x, te_y = np.load(trx_dir), np.load(try_dir), np.load(tex_dir), np.load(tey_dir)
+    label_dim = tr_y.shape[1]
+    assert label_dim == te_y.shape[1]
+    input_dim = tr_x.shape[1]
+
+    clf_list = []
+    start = time.time()
+
+    for i in range(label_dim):
+        clf = SingleClassClassifierModule(10, input_dim, gpu)
+        optim = torch.optim.Adam(clf.parameters(), lr=0.001)
+        clf.train()
+        for epoch in range(50):
+            clf.zero_grad()
+            loss = clf.loss(tr_x, tr_y[:, i])
+            loss.backward()
+            optim.step()
+        clf_list.append(clf)
+        minute = np.around((time.time() - start) / 60, decimals=4)
+        print("已训练第[{}]个标签，用时[{}] min".format(i + 1, minute))
+
+    print("evaluating .....")
+    y = np.zeros((te_y.shape[0], label_dim))
+    prob = np.zeros((te_y.shape[0], label_dim))
+    for i in range(label_dim):
+        clf_list[i].eval()
+        prob[:, i] = clf_list[i](te_x).detach().cpu().numpy().transpose()
+    y = np.array(list(map(lambda x: list(map(lambda y: 1.0 if y > 0.5 else 0.0, x)), prob)))
+
+
+
+    micro_f1 = metrics.f1_score(te_y, y, average="micro")   #
+    hamming_loss = metrics.hamming_loss(te_y, y)
+    ranking_loss = metrics.label_ranking_loss(te_y, prob)
+    micro_auc = metrics.roc_auc_score(te_y, prob, average="micro")
+    print("BR model: \n micro_f1:[{}], hamming_loss:[{}], ranking_loss:[{}], micro_auc:[{}]"
+          .format(micro_f1, hamming_loss, ranking_loss, micro_auc))
+
+
+
 if __name__ == "__main__":
     args = parse_args()
-    if not args.doc2vec:   # 端到端训练
-        if torch.cuda.is_available():
-            device_id = torch.cuda.current_device()
-            print('using device', torch.cuda.get_device_name(device_id))
-        main_lstm(args)
-    else:
-        main_svm(args)
+    main_nn(args)
