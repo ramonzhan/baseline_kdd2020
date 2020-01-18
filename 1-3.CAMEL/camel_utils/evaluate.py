@@ -5,7 +5,8 @@ import numpy as np
 import scipy.io as sci
 from collections import Counter
 from sklearn.metrics import label_ranking_average_precision_score
-from sklearn.metrics import coverage_error, label_ranking_loss, hamming_loss, accuracy_score
+from sklearn.metrics import coverage_error, label_ranking_loss, hamming_loss, accuracy_score, roc_auc_score
+
 
 '''
     True Positive  :  Label : 1, Prediction : 1
@@ -89,7 +90,7 @@ def evaluate(y_test, output, predict):
     metrics['hamming_loss'] = hamming_loss(y_test, predict)
     metrics['micro_precision'], metrics['micro_recall'], metrics['micro_f1'], metrics['macro_precision'], \
     metrics['macro_recall'], metrics['macro_f1'] = bipartition_scores(y_test, predict)
-
+    metrics["micro_auc"] = roc_auc_score(y_test, output, average="micro")
     return metrics
 
 def evaluate_ouput(y_test, output):

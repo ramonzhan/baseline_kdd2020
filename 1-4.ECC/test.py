@@ -3,6 +3,7 @@ import numpy as np
 from sklearn.externals import joblib
 import os
 from sklearn import metrics
+from metrics.metrics import Coverage, OneError
 
 
 def predict(x_test):
@@ -34,15 +35,21 @@ def load_data(path):
 if __name__ == '__main__':
 
     data_path = "/home/rleating/kdd2020/dataset/doc2vec/it_1"
-    x_test, y_test = load_data(data_path)
-    pred, pred_prob = predict(x_test)
+    x_test, target = load_data(data_path)
+    predict, confidence = predict(x_test)
 
     print("evaluating .... ")
 
-    micro_f1 = metrics.f1_score(y_test, pred, average="micro")   #
-    hamming_loss = metrics.hamming_loss(y_test, pred)
-    ranking_loss = metrics.label_ranking_loss(y_test, pred_prob)
-    micro_auc = metrics.roc_auc_score(y_test, pred_prob, average="micro")
+    micro_f1 = metrics.f1_score(target, predict, average="micro")  #
+    micro_p = metrics.precision_score(target, predict, average="micro")
+    micro_r = metrics.recall_score(target, predict, average="micro")
+    micro_auc = metrics.roc_auc_score(target, confidence, average="micro")
 
-    print("ECC model: \n micro_f1:[{}], hamming_loss:[{}], ranking_loss:[{}], micro_auc:[{}]"
-          .format(micro_f1, hamming_loss, ranking_loss, micro_auc))
+    hamming_loss = metrics.hamming_loss(target, predict)
+    ranking_loss = metrics.label_ranking_loss(target, confidence)
+    coverage = Coverage(confidence, target)
+    oneerror = OneError(confidence, target)
+
+    print("BR model: \n micro_f1:[{}], micro_auc:[{}], p:[{}], r:[{}], \n"
+          "hamming_loss:[{}], ranking_loss:[{}], cov:[{}], oneerror:[{}]"
+          .format(micro_f1, micro_auc, micro_p, micro_r, hamming_loss, ranking_loss, coverage, oneerror))

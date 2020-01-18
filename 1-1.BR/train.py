@@ -13,6 +13,7 @@ from torch import nn
 from sklearn.linear_model import LogisticRegression
 from sklearn.externals import joblib
 from sklearn import metrics
+from metrics.metrics import Coverage, OneError
 
 
 
@@ -63,7 +64,7 @@ class SingleClassClassifierModule(nn.Module):
         super(SingleClassClassifierModule, self).__init__()
         self.num_units = num_units
         self.gpu = gpu
-        self.dense0 = nn.Linear(input_dim, num_units).to(gpu)
+        self.dense0 = nn.Linear(input_dim, 10).to(gpu)
         self.dense1 = nn.Linear(num_units, 10).to(gpu)
         self.output = nn.Linear(10, 1).to(gpu)
         self.sigmoid = nn.Sigmoid()
@@ -72,7 +73,7 @@ class SingleClassClassifierModule(nn.Module):
     def forward(self, X):
         X = torch.Tensor(X).to(self.gpu)
         X = self.activate(self.dense0(X))
-        X = self.activate(self.dense1(X))
+        # X = self.activate(self.dense1(X))
         X = self.sigmoid(self.output(X))
         return X
 
@@ -224,21 +225,26 @@ def main_nn(args):
         print("已训练第[{}]个标签，用时[{}] min".format(i + 1, minute))
 
     print("evaluating .....")
-    y = np.zeros((te_y.shape[0], label_dim))
-    prob = np.zeros((te_y.shape[0], label_dim))
+    confidence = np.zeros((te_y.shape[0], label_dim))
     for i in range(label_dim):
         clf_list[i].eval()
-        prob[:, i] = clf_list[i](te_x).detach().cpu().numpy().transpose()
-    y = np.array(list(map(lambda x: list(map(lambda y: 1.0 if y > 0.5 else 0.0, x)), prob)))
+        confidence[:, i] = clf_list[i](te_x).detach().cpu().numpy().transpose()
+    predict = np.array(list(map(lambda x: list(map(lambda y: 1.0 if y > 0.5 else 0.0, x)), confidence)))
 
+    target = te_y
+    micro_f1 = metrics.f1_score(target, predict, average="micro")  #
+    micro_p = metrics.precision_score(target, predict, average="micro")
+    micro_r = metrics.recall_score(target, predict, average="micro")
+    micro_auc = metrics.roc_auc_score(target, confidence, average="micro")
 
+    hamming_loss = metrics.hamming_loss(target, predict)
+    ranking_loss = metrics.label_ranking_loss(target, confidence)
+    coverage = Coverage(confidence, target)
+    oneerror = OneError(confidence, target)
 
-    micro_f1 = metrics.f1_score(te_y, y, average="micro")   #
-    hamming_loss = metrics.hamming_loss(te_y, y)
-    ranking_loss = metrics.label_ranking_loss(te_y, prob)
-    micro_auc = metrics.roc_auc_score(te_y, prob, average="micro")
-    print("BR model: \n micro_f1:[{}], hamming_loss:[{}], ranking_loss:[{}], micro_auc:[{}]"
-          .format(micro_f1, hamming_loss, ranking_loss, micro_auc))
+    print("BR model: \n micro_f1:[{}], micro_auc:[{}], p:[{}], r:[{}], \n"
+          "hamming_loss:[{}], ranking_loss:[{}], cov:[{}], oneerror:[{}]"
+          .format(micro_f1, micro_auc, micro_p, micro_r, hamming_loss, ranking_loss, coverage, oneerror))
 
 
 

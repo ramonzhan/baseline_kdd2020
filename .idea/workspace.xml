@@ -2,14 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="187fcb2c-62f3-45cf-add2-798498f659d6" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/1-1.BR/train.py" beforeDir="false" afterPath="$PROJECT_DIR$/1-1.BR/train.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/1-2.CC/test.py" beforeDir="false" afterPath="$PROJECT_DIR$/1-2.CC/test.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/1-3.CAMEL/camel_src/camel_GPU.py" beforeDir="false" afterPath="$PROJECT_DIR$/1-3.CAMEL/camel_src/camel_GPU.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/1-3.CAMEL/camel_src/main_GPU.py" beforeDir="false" afterPath="$PROJECT_DIR$/1-3.CAMEL/camel_src/main_GPU.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/1-3.CAMEL/camel_utils/evaluate.py" beforeDir="false" afterPath="$PROJECT_DIR$/1-3.CAMEL/camel_utils/evaluate.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/1-4.ECC/test.py" beforeDir="false" afterPath="$PROJECT_DIR$/1-4.ECC/test.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/1-4.ECC/train.py" beforeDir="false" afterPath="$PROJECT_DIR$/1-4.ECC/train.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/1-5.ML-KNN/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/1-5.ML-KNN/data_process.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/1-5.ML-KNN/mlknn.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/evaluate_metrics.py" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -17,39 +16,76 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand />
+    <select />
+  </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/1-1.BR/train.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="755">
-              <caret line="70" column="33" lean-forward="true" selection-start-line="70" selection-start-column="33" selection-end-line="70" selection-end-column="33" />
+            <state relative-caret-position="-560">
+              <caret line="2" selection-start-line="2" selection-end-line="2" selection-end-column="66" />
               <folding>
-                <element signature="e#16#25#0" expanded="true" />
-                <element signature="e#549#2465#0" />
-                <element signature="e#2618#3240#0" />
-                <element signature="e#3268#5788#0" />
+                <element signature="e#3537#4159#0" />
+                <element signature="e#4187#6707#0" />
+                <element signature="e#6734#7826#0" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$USER_HOME$/.PyCharm2019.1/system/remote_sources/-1323113588/1154070760/torch/tensor.py">
+        <entry file="file://$PROJECT_DIR$/1-3.CAMEL/camel_src/main_GPU.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="182">
-              <caret line="459" selection-start-line="459" selection-end-line="459" />
+            <state relative-caret-position="455">
+              <caret line="43" column="25" lean-forward="true" selection-start-line="43" selection-start-column="25" selection-end-line="43" selection-end-column="25" />
+              <folding>
+                <element signature="e#91#108#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/1-1.BR/test.py">
+        <entry file="file://$PROJECT_DIR$/1-3.CAMEL/camel_src/tune.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="435">
-              <caret line="41" selection-start-line="41" selection-end-line="42" selection-end-column="67" />
+            <state relative-caret-position="220">
+              <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/1-3.CAMEL/camel_src/camel_GPU.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="300">
+              <caret line="144" lean-forward="true" selection-start-line="144" selection-end-line="144" />
               <folding>
-                <element signature="e#16#34#0" expanded="true" />
+                <element signature="e#77#95#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/1-3.CAMEL/camel_utils/evaluate.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="415">
+              <caret line="93" column="18" lean-forward="true" selection-start-line="93" selection-start-column="18" selection-end-line="93" selection-end-column="18" />
+              <folding>
+                <element signature="e#76#94#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -79,6 +115,9 @@
       <find>build_model</find>
       <find>schedule</find>
       <find>last_score</find>
+      <find>prob</find>
+      <find>coverage_error</find>
+      <find>tqdm</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -92,21 +131,25 @@
         <option value="$PROJECT_DIR$/1-4.SGM/config.yaml" />
         <option value="$PROJECT_DIR$/1-3.CAMEL/camel_src/preprocess.py" />
         <option value="$PROJECT_DIR$/1-1.BR/test.py" />
-        <option value="$PROJECT_DIR$/1-2.CC/test.py" />
         <option value="$PROJECT_DIR$/1-2.CC/train.py" />
         <option value="$PROJECT_DIR$/1-3.CAMEL/camel_src/main.py" />
-        <option value="$PROJECT_DIR$/1-3.CAMEL/camel_src/main_GPU.py" />
-        <option value="$PROJECT_DIR$/1-4.ECC/train.py" />
-        <option value="$PROJECT_DIR$/1-4.ECC/test.py" />
         <option value="$PROJECT_DIR$/1-2.CC/train_skmultilearn.py" />
         <option value="$PROJECT_DIR$/2-1.SGM/config.yaml" />
         <option value="$PROJECT_DIR$/1-1.BR/train_skmultilearn.py" />
+        <option value="$PROJECT_DIR$/metrics/metrics.py" />
         <option value="$PROJECT_DIR$/1-1.BR/train.py" />
+        <option value="$PROJECT_DIR$/1-4.ECC/test.py" />
+        <option value="$PROJECT_DIR$/1-4.ECC/train.py" />
+        <option value="$PROJECT_DIR$/1-2.CC/test.py" />
+        <option value="$PROJECT_DIR$/1-3.CAMEL/camel_utils/evaluate.py" />
+        <option value="$PROJECT_DIR$/1-3.CAMEL/camel_src/main_GPU.py" />
+        <option value="$PROJECT_DIR$/1-3.CAMEL/camel_src/tune.py" />
+        <option value="$PROJECT_DIR$/1-3.CAMEL/camel_src/camel_GPU.py" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="1304" />
+  <component name="ProjectFrameBounds" extendedState="7">
+    <option name="x" value="1035" />
     <option name="width" value="1263" />
     <option name="height" value="1087" />
   </component>
@@ -126,6 +169,27 @@
               <item name="baseline_kdd2020" type="b2602c69:ProjectViewProjectNode" />
               <item name="baseline_kdd2020" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="baseline_kdd2020" type="b2602c69:ProjectViewProjectNode" />
+              <item name="baseline_kdd2020" type="462c0819:PsiDirectoryNode" />
+              <item name="1-2.CC" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="baseline_kdd2020" type="b2602c69:ProjectViewProjectNode" />
+              <item name="baseline_kdd2020" type="462c0819:PsiDirectoryNode" />
+              <item name="1-3.CAMEL" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="baseline_kdd2020" type="b2602c69:ProjectViewProjectNode" />
+              <item name="baseline_kdd2020" type="462c0819:PsiDirectoryNode" />
+              <item name="1-3.CAMEL" type="462c0819:PsiDirectoryNode" />
+              <item name="camel_src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="baseline_kdd2020" type="b2602c69:ProjectViewProjectNode" />
+              <item name="baseline_kdd2020" type="462c0819:PsiDirectoryNode" />
+              <item name="2-1.SGM" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -134,13 +198,13 @@
   </component>
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="WebServerToolWindowFactoryState" value="true" />
     <property name="WebServerToolWindowPanel.toolwindow.highlight.mappings" value="true" />
     <property name="WebServerToolWindowPanel.toolwindow.highlight.symlinks" value="true" />
     <property name="WebServerToolWindowPanel.toolwindow.show.date" value="false" />
     <property name="WebServerToolWindowPanel.toolwindow.show.permissions" value="false" />
     <property name="WebServerToolWindowPanel.toolwindow.show.size" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../code_kdd2020" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="restartRequiresConfirmation" value="false" />
@@ -158,29 +222,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.train (1)">
-    <configuration name="main_GPU" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="baseline_kdd2020" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/1-3.CAMEL/camel_src" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/1-3.CAMEL/camel_src/main_GPU.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
+  <component name="RunManager" selected="Python.test (1)">
     <configuration name="test (1)" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="baseline_kdd2020" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -195,6 +237,28 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/1-2.CC/test.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="test" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="baseline_kdd2020" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/1-4.ECC" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/1-4.ECC/test.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -225,6 +289,28 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="train (2)" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="baseline_kdd2020" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/1-4.ECC" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/1-4.ECC/train.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="train" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="baseline_kdd2020" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -247,35 +333,13 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="train_skmultilearn" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="baseline_kdd2020" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/1-1.BR" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/1-1.BR/train_skmultilearn.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.test (1)" />
+        <item itemvalue="Python.test" />
+        <item itemvalue="Python.train (2)" />
         <item itemvalue="Python.train (1)" />
         <item itemvalue="Python.train" />
-        <item itemvalue="Python.main_GPU" />
-        <item itemvalue="Python.test (1)" />
-        <item itemvalue="Python.train_skmultilearn" />
       </list>
     </recent_temporary>
   </component>
@@ -292,16 +356,18 @@
       <workItem from="1579188917972" duration="11276000" />
       <workItem from="1579251188357" duration="20000" />
       <workItem from="1579251227389" duration="15719000" />
+      <workItem from="1579328224672" duration="8278000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="27015000" />
+    <option name="totallyTimeSpent" value="35293000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="54" y="-8" width="2514" height="1096" extended-state="6" />
+    <frame x="54" y="-8" width="2514" height="1096" extended-state="7" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2567237" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.12876935" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -317,13 +383,13 @@
       <window_info anchor="bottom" id="Database Changes" order="10" />
       <window_info anchor="bottom" id="Terminal" order="11" />
       <window_info anchor="bottom" id="Event Log" order="12" side_tool="true" />
-      <window_info anchor="bottom" id="Python Console" order="13" weight="0.32952183" />
+      <window_info anchor="bottom" id="Python Console" order="13" visible="true" weight="0.32952183" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="Remote Host" order="3" weight="0.5709047" />
+      <window_info active="true" anchor="right" id="Remote Host" order="3" visible="true" weight="0.19274653" />
       <window_info anchor="right" id="SciView" order="4" weight="0.4322527" />
-      <window_info anchor="right" id="Database" order="5" />
+      <window_info anchor="right" id="Database" order="5" weight="0.32966584" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -341,14 +407,14 @@
     </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/baseline_kdd2020$train__2_.coverage" NAME="train (2) Coverage Results" MODIFIED="1579247575711" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/1-2.CC" />
-    <SUITE FILE_PATH="coverage/baseline_kdd2020$test.coverage" NAME="test Coverage Results" MODIFIED="1579249125089" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/1-1.BR" />
+    <SUITE FILE_PATH="coverage/baseline_kdd2020$train__2_.coverage" NAME="train (2) Coverage Results" MODIFIED="1579332429141" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/1-4.ECC" />
+    <SUITE FILE_PATH="coverage/baseline_kdd2020$test.coverage" NAME="test Coverage Results" MODIFIED="1579361656697" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/1-4.ECC" />
     <SUITE FILE_PATH="coverage/baseline_kdd2020$train_skmultilearn.coverage" NAME="train_skmultilearn Coverage Results" MODIFIED="1579256197871" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/1-1.BR" />
-    <SUITE FILE_PATH="coverage/baseline_kdd2020$test__1_.coverage" NAME="test (1) Coverage Results" MODIFIED="1579267038197" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/1-2.CC" />
+    <SUITE FILE_PATH="coverage/baseline_kdd2020$test__1_.coverage" NAME="test (1) Coverage Results" MODIFIED="1579362042060" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/1-2.CC" />
     <SUITE FILE_PATH="coverage/baseline_kdd2020$test__2_.coverage" NAME="test (2) Coverage Results" MODIFIED="1579252125392" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/1-4.ECC" />
     <SUITE FILE_PATH="coverage/baseline_kdd2020$train_skmultilearn__1_.coverage" NAME="train_skmultilearn (1) Coverage Results" MODIFIED="1579254621265" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/1-2.CC" />
     <SUITE FILE_PATH="coverage/baseline_kdd2020$main_GPU.coverage" NAME="main_GPU Coverage Results" MODIFIED="1579271183062" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/1-3.CAMEL/camel_src" />
-    <SUITE FILE_PATH="coverage/baseline_kdd2020$train__1_.coverage" NAME="train (1) Coverage Results" MODIFIED="1579281115078" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/1-1.BR" />
+    <SUITE FILE_PATH="coverage/baseline_kdd2020$train__1_.coverage" NAME="train (1) Coverage Results" MODIFIED="1579330346114" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/1-1.BR" />
     <SUITE FILE_PATH="coverage/baseline_kdd2020$preprocess__1_.coverage" NAME="preprocess (1) Coverage Results" MODIFIED="1579242383525" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/1-3.CAMEL/camel_src" />
     <SUITE FILE_PATH="coverage/baseline_kdd2020$preprocess.coverage" NAME="preprocess Coverage Results" MODIFIED="1579242367508" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/1-4.SGM" />
     <SUITE FILE_PATH="coverage/baseline_kdd2020$train.coverage" NAME="train Coverage Results" MODIFIED="1579277319452" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/2-1.SGM" />
@@ -434,9 +500,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/1-5.ML-KNN/mlknn.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/1-5.ML-KNN/mlknn.py" />
     <entry file="file://$PROJECT_DIR$/1-3.CAMEL/camel_src/main.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
@@ -447,13 +511,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/evaluate_metrics.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1340">
-          <caret line="21" column="16" selection-start-line="21" selection-start-column="16" selection-end-line="21" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/evaluate_metrics.py" />
     <entry file="file://$PROJECT_DIR$/1-2.CC/train.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="355">
@@ -464,64 +522,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/1-4.ECC/test.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="580">
-          <caret line="32" lean-forward="true" selection-start-line="32" selection-end-line="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/1-4.ECC/train.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="56" column="21" selection-start-line="56" selection-start-column="4" selection-end-line="56" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/1-2.CC/train_skmultilearn.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="715">
-          <caret line="50" column="63" lean-forward="true" selection-end-line="50" selection-end-column="63" />
-          <folding>
-            <element signature="e#16#28#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/1-2.CC/test.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="15" selection-start-line="15" selection-end-line="15" />
-          <folding>
-            <element signature="e#16#34#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/1-3.CAMEL/camel_utils/evaluate.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="320">
-          <caret line="92" column="18" selection-start-line="92" selection-start-column="18" selection-end-line="92" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/1-3.CAMEL/camel_src/camel_GPU.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2905">
-          <caret line="71" column="12" selection-start-line="71" selection-start-column="12" selection-end-line="71" selection-end-column="12" />
-          <folding>
-            <element signature="e#77#95#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/1-3.CAMEL/camel_src/main_GPU.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="26" column="28" selection-start-line="26" selection-start-column="28" selection-end-line="26" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/1-2.CC/train_skmultilearn.py" />
     <entry file="file://$PROJECT_DIR$/2-1.SGM/models/optims.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="160">
@@ -569,20 +570,14 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/1-1.BR/train_skmultilearn.py">
+    <entry file="file://$PROJECT_DIR$/1-1.BR/train_skmultilearn.py" />
+    <entry file="file://$PROJECT_DIR$/metrics/metrics.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-65">
-          <caret line="21" selection-start-line="21" selection-end-line="21" />
+        <state relative-caret-position="915">
+          <caret line="199" column="12" selection-start-line="199" selection-start-column="12" selection-end-line="199" selection-end-column="12" />
           <folding>
-            <element signature="e#16#28#0" expanded="true" />
+            <element signature="e#32#50#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/.PyCharm2019.1/system/remote_sources/-1323113588/1154070760/torch/tensor.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="182">
-          <caret line="459" selection-start-line="459" selection-end-line="459" />
         </state>
       </provider>
     </entry>
@@ -596,15 +591,88 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/1-1.BR/train.py">
+    <entry file="file://$USER_HOME$/.PyCharm2019.1/system/remote_sources/-1323113588/1154070760/torch/tensor.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="755">
-          <caret line="70" column="33" lean-forward="true" selection-start-line="70" selection-start-column="33" selection-end-line="70" selection-end-column="33" />
+        <state relative-caret-position="182">
+          <caret line="459" selection-start-line="459" selection-end-line="459" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/1-4.ECC/test.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="420">
+          <caret line="39" lean-forward="true" selection-start-line="39" selection-end-line="39" />
+          <folding>
+            <element signature="e#16#34#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/1-2.CC/test.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="295">
+          <caret line="32" column="61" lean-forward="true" selection-start-line="32" selection-start-column="61" selection-end-line="32" selection-end-column="61" />
+          <folding>
+            <element signature="e#16#34#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/1-4.ECC/train.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-25">
+          <caret line="54" lean-forward="true" selection-start-line="54" selection-end-line="54" />
           <folding>
             <element signature="e#16#25#0" expanded="true" />
-            <element signature="e#549#2465#0" />
-            <element signature="e#2618#3240#0" />
-            <element signature="e#3268#5788#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/1-3.CAMEL/camel_utils/evaluate.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="415">
+          <caret line="93" column="18" lean-forward="true" selection-start-line="93" selection-start-column="18" selection-end-line="93" selection-end-column="18" />
+          <folding>
+            <element signature="e#76#94#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/1-3.CAMEL/camel_src/tune.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="220">
+          <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/1-1.BR/train.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-560">
+          <caret line="2" selection-start-line="2" selection-end-line="2" selection-end-column="66" />
+          <folding>
+            <element signature="e#3537#4159#0" />
+            <element signature="e#4187#6707#0" />
+            <element signature="e#6734#7826#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/1-3.CAMEL/camel_src/main_GPU.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="455">
+          <caret line="43" column="25" lean-forward="true" selection-start-line="43" selection-start-column="25" selection-end-line="43" selection-end-column="25" />
+          <folding>
+            <element signature="e#91#108#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/1-3.CAMEL/camel_src/camel_GPU.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="144" lean-forward="true" selection-start-line="144" selection-end-line="144" />
+          <folding>
+            <element signature="e#77#95#0" expanded="true" />
           </folding>
         </state>
       </provider>

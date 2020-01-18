@@ -12,6 +12,7 @@ from sklearn.metrics.pairwise import rbf_kernel
 from sklearn.model_selection import KFold, train_test_split
 from sklearn.metrics.pairwise import euclidean_distances
 from camel_utils.evaluate import evaluate
+import time
 
 
 def ADMM(y_not_j, y_j, rho, alpha):
@@ -86,7 +87,7 @@ def CAMEL(S, x, y, alpha, lam2):
 
     H = (1 / lam2) * K + cp.eye(num_instances) #size num_instances * num_instances
 
-    for iter in tqdm(range(max_iter)):
+    for iter in range(max_iter):
         #b_T is row vector
         H_inv = cp.linalg.inv(H) #size num_instances * num_instances
         b_T = cp.sum(cp.dot(H_inv, Z), axis=0) / cp.sum(H_inv)
@@ -123,14 +124,24 @@ def loss(predcit, y):
 
 
 def train(x_train, y_train, rho, alpha, alpha_ban, lam2, x_test, y_test):
+
     num_labels = y_train.shape[1]
     S = cp.zeros((num_labels, num_labels))
+    f = open("/home/rleating/kdd2020/results/baseline_camel/rho[{}]_alpha[{}]_alphaban[{}]_lam[{}].txt"
+             .format(rho, alpha, alpha_ban, lam2), "w", encoding="utf-8")
+
+    start_time = time.time()
     # get label correlation matrix
-    for j in tqdm(range(num_labels)):
+    for j in range(num_labels):
         y_j = cp.array(y_train[:, j].reshape(-1, 1))
         y_not_j = cp.array(np.delete(y_train, j, axis=1))
         S_j = ADMM(y_not_j, y_j, rho, alpha_ban)
         S[j, :] = cp.array(np.insert(np.array(S_j.tolist()), j, 0))
+        if j % 10 == 0:
+            end_time = time.time()
+            minute = np.around((end_time - start_time) / 60, decimals=3)
+            print("we trained label [{}]th, cost time [{}]min accumtely".format(j, minute))
+
 
     # get caml parameter
     G, A, gamma, b_T = CAMEL(S, x_train, y_train, alpha, lam2)
@@ -140,101 +151,6 @@ def train(x_train, y_train, rho, alpha, alpha_ban, lam2, x_test, y_test):
     y_test[y_test==-1] = 0
     test_predict[test_predict==-1] = 0
     metric = evaluate(y_test, np.array(test_output.tolist()), np.array(test_predict.tolist()))
+    print(metric, file=f)
     print(metric)
-
-
-def train_val(dataset, x, y, rho_list, alpha_list, alpha_ban_list, lam2_list):
-    train_log_path = '../train_log/' + dataset + '/'
-    log_name = time.strftime('%Y-%m-%d-%H:%M:%S', time.localtime(time.time())) + '.log'
-
-    num_labels = y.shape[1]
-    S = cp.zeros((num_labels, num_labels))
-    kf = KFold(n_splits=5, random_state=1)
-
-    step = 0
-    best_val_loss = 1e6
-    all_paras = []
-    print('dataset:', dataset)
-    for rho in rho_list:
-        for alpha in alpha_list:
-            for alpha_ban in alpha_ban_list:
-                for lam2 in lam2_list:
-                    output = 'step:{}, time:{}, CAME rho:{}, alpha:{}, alpha_ban:{},lam2:{}'.format(step, time.strftime('%H:%M:%S', time.localtime(time.time())), rho, alpha, alpha_ban, lam2)
-                    output_ = output
-                    print(output)
-
-                    fold = 0
-                    train_loss_list = []
-                    val_loss_list = []
-                    test_loss_list = []
-                    for train_idx, test_idx in kf.split(x):
-                        x_trainval = x[train_idx]
-                        y_trainval = y[train_idx]
-                        x_train, x_val, y_train, y_val = train_test_split(x_trainval, y_trainval, test_size=0.2,
-                                                                          random_state=0)
-
-                        x_test = x[test_idx]
-                        y_test = y[test_idx]
-
-                        # get label correlation matrix
-                        for j in range(num_labels):
-                            y_j = cp.array(y_train[:, j].reshape(-1, 1))
-                            y_not_j = cp.array(np.delete(y_train, j, axis=1))
-                            S_j = ADMM(y_not_j, y_j, rho, alpha_ban)
-                            S[j, :] = cp.array(np.insert(np.array(S_j.tolist()), j, 0))
-
-                        # get caml parameter
-                        G, A, gamma, b_T = CAMEL(S, x_train, y_train, alpha, lam2)
-
-                        # evalue
-                        _, train_predict = predict(G, A, gamma, x_train, x_train, b_T, lam2)
-                        _, val_predict = predict(G, A, gamma, x_train, x_val, b_T, lam2)
-                        _, test_predict = predict(G, A, gamma, x_train, x_test, b_T, lam2)
-                        train_loss = loss(train_predict, y_train)
-                        val_loss = loss(val_predict, y_val)
-                        test_loss = loss(test_predict, y_test)
-
-                        train_loss_list.append(train_loss)
-                        val_loss_list.append(val_loss)
-                        test_loss_list.append(test_loss)
-
-                        output = 'time:{}, Kflod {}, train loss:{}, val loss:{}, test loss:{}'.format(
-                            time.strftime('%H:%M:%S', time.localtime(time.time())), fold, train_loss, val_loss, test_loss)
-                        output_ = output_ + '\n' + output
-                        print(output)
-                        fold += 1
-
-                    mean_train_loss, mean_val_loss, mean_test_loss = cp.mean(cp.array(train_loss_list)), cp.mean(
-                        cp.array(val_loss_list)), cp.mean(cp.array(test_loss_list))
-                    output = 'mean train loss:{}, val loss:{}, test loss:{}'.format(mean_train_loss, mean_val_loss,
-                                                                                    mean_test_loss)
-                    output_ = output_ + '\n' + output
-                    print(output)
-
-                    paras = (mean_val_loss, mean_test_loss, mean_train_loss, rho, alpha, alpha_ban, lam2)
-                    all_paras.append(paras)
-                    if mean_val_loss < best_val_loss:
-                        best_val_loss = mean_val_loss
-                        output = 'current best val loss para, rho:{}, alpha:{},  alpha_ban:{}, lam2:{}'.format(rho, alpha, alpha_ban, lam2)
-                        output_ = output_ + '\n' + output
-                        print(output)
-
-                    step += 1
-                    output_ = output_ + '\n\n'
-                    print()
-
-                    path_exists(train_log_path)
-                    with open(train_log_path + log_name, 'a+') as f:
-                        f.write(output_)
-
-    with open(train_log_path + log_name, 'a+') as f:
-        all_paras.sort()
-        f.write('all_paras\n')
-        for paras in all_paras:
-            f.write('val loss: {} '.format(paras[0]))
-            f.write('test loss: {} '.format(paras[1]))
-            f.write('train loss: {}'.format(paras[2]))
-            f.write('rho: {} '.format(paras[3]))
-            f.write('alpha: {} '.format(paras[4]))
-            f.write('alpha_ban: {} '.format(paras[5]))
-            f.write('lam2: {}\n'.format(paras[6]))
+    f.close()
