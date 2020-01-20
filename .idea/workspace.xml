@@ -1,15 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="187fcb2c-62f3-45cf-add2-798498f659d6" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/1-1.BR/train.py" beforeDir="false" afterPath="$PROJECT_DIR$/1-1.BR/train.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/1-2.CC/test.py" beforeDir="false" afterPath="$PROJECT_DIR$/1-2.CC/test.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/1-3.CAMEL/camel_src/camel_GPU.py" beforeDir="false" afterPath="$PROJECT_DIR$/1-3.CAMEL/camel_src/camel_GPU.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/1-3.CAMEL/camel_src/main_GPU.py" beforeDir="false" afterPath="$PROJECT_DIR$/1-3.CAMEL/camel_src/main_GPU.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/1-3.CAMEL/camel_utils/evaluate.py" beforeDir="false" afterPath="$PROJECT_DIR$/1-3.CAMEL/camel_utils/evaluate.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/1-4.ECC/test.py" beforeDir="false" afterPath="$PROJECT_DIR$/1-4.ECC/test.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/1-4.ECC/train.py" beforeDir="false" afterPath="$PROJECT_DIR$/1-4.ECC/train.py" afterDir="false" />
-    </list>
+    <list default="true" id="187fcb2c-62f3-45cf-add2-798498f659d6" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -149,7 +141,8 @@
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="7">
-    <option name="x" value="1035" />
+    <option name="x" value="532" />
+    <option name="y" value="39" />
     <option name="width" value="1263" />
     <option name="height" value="1087" />
   </component>
