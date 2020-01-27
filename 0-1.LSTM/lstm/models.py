@@ -30,7 +30,7 @@ def fetch(content, ids, max_len, pad):
 
 
 class ContentLSTM(nn.Module):
-    def __init__(self, datacenter, config, device, layer=2, bidirect=True):
+    def __init__(self, datacenter, config, device, layer=1, bidirect=False):
         super(ContentLSTM, self).__init__()
         self.device = device
         self.config = config
@@ -50,7 +50,7 @@ class ContentLSTM(nn.Module):
         self.encoder = nn.LSTM(config.wv_dim, enc_dim, num_layers=layer, batch_first=True,
                                    dropout=dropout, bidirectional=bidirect).to(device)
         self.loss_fn = nn.BCEWithLogitsLoss(reduction="sum")
-        self.full_layer = nn.Linear(enc_dim * 2, self.skill_num).to(device)
+        self.full_layer = nn.Linear(config.enc_dim, self.skill_num).to(device)
         self.activate_sigmoid = nn.Sigmoid()
 
     def forward(self, fetch_tuple):

@@ -42,7 +42,7 @@ def parse_args():
     parser.add_argument("--batch_size_eval", help="the size of a batch when eval", type=int, default=32)
     parser.add_argument("--dropout", type=float, default=0.3)
     parser.add_argument("--epoch_num", type=int, default=100)
-    parser.add_argument("--lr", type=float, default=1e-3)
+    parser.add_argument("--lr", type=float, default=1e-2)
     parser.add_argument("--gpu_id", help="the id of the gpu", type=int, default=0)
     args = parser.parse_args()
     return args

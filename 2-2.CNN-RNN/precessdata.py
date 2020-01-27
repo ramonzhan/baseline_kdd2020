@@ -7,8 +7,8 @@ def readdata():
     data = {}
 
     #train
-    trainsrc = open("/home/rleating/kdd2020/dataset/sgm/it_1/trainsrc.str",'r')
-    traintgt = open("/home/rleating/kdd2020/dataset/sgm/it_1/traintgt.str",'r')
+    trainsrc = open("/kdd2020/dataset/sgm/it_1/trainsrc.str",'r')
+    traintgt = open("/kdd2020/dataset/sgm/it_1/traintgt.str",'r')
 
     trainsrc = trainsrc.readlines()
     train_src = []
@@ -34,8 +34,8 @@ def readdata():
     data["train_y"] = train_y1
 
     #test
-    testsrc = open("/home/rleating/kdd2020/dataset/sgm/it_1/testsrc.str", 'r')
-    testtgt = open("/home/rleating/kdd2020/dataset/sgm/it_1/testtgt.str", 'r')
+    testsrc = open("/kdd2020/dataset/sgm/it_1/testsrc.str", 'r')
+    testtgt = open("/kdd2020/dataset/sgm/it_1/testtgt.str", 'r')
 
     testsrc = testsrc.readlines()
     test_src = []
@@ -63,11 +63,11 @@ def readdata():
     data["dev_y"] = test_y1
 
     #skill vocab
-    skill_class = pkl.load(open("/home/rleating/kdd2020/dataset/it_1/skills.pkl",'rb'))
+    skill_class = pkl.load(open("/kdd2020/dataset/it_1/skills.pkl",'rb'))
     a = set([-1*item-1 for sublist in skill_class.values() for item in sublist])
     data["classes"] = list(a)
 
-    vocab = open("/home/rleating/kdd2020/dataset/sgm/it_1/src.dict", 'r')
+    vocab = open("/kdd2020/dataset/sgm/it_1/src.dict", 'r')
     vocab = vocab.readlines()
     word_to_idx = {}
     idx_to_word = {}
@@ -80,19 +80,19 @@ def readdata():
     vocab_list = list(word_to_idx.keys())
     data['vocab'] = vocab_list
 
-    tgt_vocab = open("/home/rleating/kdd2020/dataset/sgm/it_1/tgt.dict", 'r')
+    tgt_vocab = open("/kdd2020/dataset/sgm/it_1/tgt.dict", 'r')
     tgt_vocab = tgt_vocab.readlines()
     # for tgt in tgt_vocab:
     data['word_to_idx'] = word_to_idx
     data['idx_to_word'] = idx_to_word
     return data
 
-def multi_hot(label_list, skill_num, batch_size, gpu):
-    label_t = torch.zeros(batch_size, skill_num, requires_grad=False).to(gpu)
+def multi_hot(label_list, skill_num, batch_size):    # 这里不用乘负号再减一了
+    label_t = torch.zeros(batch_size, skill_num, requires_grad=False).to("cpu")
     row_indice = [i for i in range(batch_size) for _ in label_list[i]]
-    col_indice = [-j - 1 for i in range(batch_size) for j in label_list[i]]
+    col_indice = [j for i in range(batch_size) for j in label_list[i]]
     label_t[row_indice, col_indice] = 1
-    return label_t
+    return label_t.detach().numpy()
 
 
 if __name__ == "__main__":
