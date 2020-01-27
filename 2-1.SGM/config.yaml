@@ -1,11 +1,11 @@
-data: '/home/rleating/kdd2020/dataset/sgm/it_1/'
-logF: '/home/rleating/kdd2020/logs/1-4.sgm/'
-epoch: 20
+data: '/kdd2020/dataset/sgm/it_1/'
+logF: '/kdd2020/logs/1-4.sgm/'
+epoch: 50
 batch_size: 64
 optim: 'adam'
 cell: 'lstm'
 attention: 'luong_gate'
-learning_rate: 0.0003
+learning_rate: 0.0001
 max_grad_norm: 10
 learning_rate_decay: 0.5
 start_decay_at: 2
@@ -22,7 +22,7 @@ unk: False
 schedule: False
 schesamp: False
 length_norm: True
-metrics: ['micro_f1', 'hamming_loss']
+metrics: ['micro_f1', 'hamming_loss', 'micro_recall', 'micro_precision']
 shared_vocab: False
 beam_size: 1
 eval_time: 10

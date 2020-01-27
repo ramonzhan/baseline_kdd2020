@@ -17,5 +17,5 @@
       </profile-state>
     </entry>
   </component>
-  <component name="ProjectRootManager" version="2" project-jdk-name="Remote Python 3.6.5 (sftp://rleating@192.168.129.117:22/home/rleating/anaconda3/bin/python)" project-jdk-type="Python SDK" />
+  <component name="ProjectRootManager" version="2" project-jdk-name="Remote Python 3.7.0 (sftp://ramon@192.168.129.119:22/opt/anaconda/envs/ramon_pytorch1.x/bin/python)" project-jdk-type="Python SDK" />
 </project>

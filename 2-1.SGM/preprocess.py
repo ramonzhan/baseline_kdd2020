@@ -7,8 +7,8 @@ import operator
 
 
 parser = argparse.ArgumentParser(description='preprocess.py')
-parser.add_argument('-load_data', type=str, default="/home/rleating/kdd2020/dataset/it_1/")
-parser.add_argument('-save_data', type=str, default="/home/rleating/kdd2020/dataset/sgm/it_1/")
+parser.add_argument('-load_data', type=str, default="/kdd2020/dataset/it_1/")
+parser.add_argument('-save_data', type=str, default="/kdd2020/dataset/sgm/it_1/")
 parser.add_argument('-src_suf', default='src', help="the suffix of the source filename")
 parser.add_argument('-tgt_suf', default='tgt', help="the suffix of the target filename")
 opt = parser.parse_args()

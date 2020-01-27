@@ -7,7 +7,7 @@ from metrics.metrics import Coverage, OneError
 
 
 def predict(x_test):
-    root_dir = "/home/rleating/kdd2020"
+    root_dir = "/kdd2020"
     model_dir = os.path.join(root_dir, "models", "ecc")
     chains_order_list = joblib.load(model_dir + '/chains_order_list.pkl')
     clf_list = joblib.load(model_dir + '/ecc.pkl')
@@ -34,7 +34,7 @@ def load_data(path):
 
 if __name__ == '__main__':
 
-    data_path = "/home/rleating/kdd2020/dataset/doc2vec/it_1"
+    data_path = "/kdd2020/dataset/doc2vec/it_1"
     x_test, target = load_data(data_path)
     predict, confidence = predict(x_test)
 
@@ -50,6 +50,6 @@ if __name__ == '__main__':
     coverage = Coverage(confidence, target)
     oneerror = OneError(confidence, target)
 
-    print("BR model: \n micro_f1:[{}], micro_auc:[{}], p:[{}], r:[{}], \n"
+    print("Ecc model: \n micro_f1:[{}], micro_auc:[{}], p:[{}], r:[{}], \n"
           "hamming_loss:[{}], ranking_loss:[{}], cov:[{}], oneerror:[{}]"
           .format(micro_f1, micro_auc, micro_p, micro_r, hamming_loss, ranking_loss, coverage, oneerror))

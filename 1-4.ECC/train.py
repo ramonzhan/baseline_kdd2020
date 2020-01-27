@@ -61,7 +61,7 @@ def main_svm(args):
         chains_order = random.sample(range(label_dim), label_dim)
         chains_order_list.append(chains_order)
         for label_idx, j in enumerate(chains_order):
-            clf = LogisticRegression()
+            clf = LogisticRegression(solver="liblinear")
             clf.fit(tr_x, tr_y[:, j].ravel())
             tr_x = np.c_[tr_x, tr_y[:, j]]
             clf_list_i.append(clf)
