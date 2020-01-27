@@ -53,8 +53,8 @@ def main_svm(args):
     clf_list = []
     start = time.time()
 
-    number_of_chains = 10
-    subset_proportion = 0.75
+    number_of_chains = 2
+    # subset_proportion = 0.75
     chains_order_list = []
     for _, i in enumerate(range(number_of_chains)):
         clf_list_i = []

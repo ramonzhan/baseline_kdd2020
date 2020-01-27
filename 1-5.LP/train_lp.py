@@ -5,6 +5,7 @@ import os
 import numpy as np
 from sklearn import metrics
 from metrics.metrics import Coverage, OneError
+from multiprocessing import cpu_count
 
 root_dir = "/kdd2020/dataset"
 data_num = "it_1"
@@ -14,10 +15,10 @@ dataset_dir = os.path.join(root_dir, "doc2vec", data_num)
 trx_dir, try_dir = os.path.join(dataset_dir, "train_x.npy"), os.path.join(dataset_dir, "train_y.npy")
 tex_dir, tey_dir = os.path.join(dataset_dir, "test_x.npy"), os.path.join(dataset_dir, "test_y.npy")
 tr_x, tr_y, te_x, target = np.load(trx_dir), np.load(try_dir), np.load(tex_dir), np.load(tey_dir)
-classifier = LabelPowerset(classifier=LogisticRegression(solver="liblinear"))
+classifier = LabelPowerset(classifier=LogisticRegression(solver="liblinear", n_jobs=cpu_count(), verbose=2))
 classifier.fit(tr_x, tr_y)
 predict = classifier.predict(te_x).todense()
-confidence = classifier.pred_proba(te_x).todense()
+confidence = classifier.predict_proba(te_x).todense()
 print("evaluating .... ")
 
 micro_f1 = metrics.f1_score(target, predict, average="micro")  #

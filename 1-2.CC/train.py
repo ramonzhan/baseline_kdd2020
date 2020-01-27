@@ -53,7 +53,7 @@ def main_svm(args):
     clf_list = []
     start = time.time()
     for i in range(label_dim):
-        clf = LogisticRegression()
+        clf = LogisticRegression(solver="liblinear")
         clf.fit(tr_x, tr_y[:, i].ravel())
         pred = clf.predict(tr_x)
         tr_x = np.c_[tr_x, pred]

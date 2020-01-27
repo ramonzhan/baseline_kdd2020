@@ -7,7 +7,7 @@ cell: 'lstm'
 attention: 'luong_gate'
 learning_rate: 0.0001
 max_grad_norm: 10
-learning_rate_decay: 0.5
+learning_rate_decay: 1
 start_decay_at: 2
 emb_size: 512
 hidden_size: 512

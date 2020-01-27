@@ -7,7 +7,7 @@ from metrics.metrics import Coverage, OneError
 
 
 def predict(x_test):
-    root_dir = "/home/rleating/kdd2020"
+    root_dir = "/kdd2020"
     model_dir = os.path.join(root_dir, "models")
     clf_list = joblib.load(model_dir + '/cc.pkl')
 
@@ -30,7 +30,7 @@ def load_data(path):
 
 if __name__ == '__main__':
 
-    data_path = "/home/rleating/kdd2020/dataset/doc2vec/it_1"
+    data_path = "/kdd2020/dataset/doc2vec/it_1"
     x_test, target = load_data(data_path)
     predict, confidence = predict(x_test)
 

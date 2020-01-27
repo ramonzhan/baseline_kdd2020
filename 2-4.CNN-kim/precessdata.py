@@ -7,8 +7,8 @@ def readdata():
     data = {}
 
     #train
-    trainsrc = open("/home/rleating/kdd2020/dataset/sgm/it_1/trainsrc.str",'r')
-    traintgt = open("/home/rleating/kdd2020/dataset/sgm/it_1/traintgt.str",'r')
+    trainsrc = open("/kdd2020/dataset/sgm/it_1/trainsrc.str",'r')
+    traintgt = open("/kdd2020/dataset/sgm/it_1/traintgt.str",'r')
 
     trainsrc = trainsrc.readlines()
     train_src = []
@@ -25,8 +25,8 @@ def readdata():
     data["train_y"] = train_tgt
 
     #test
-    testsrc = open("/home/rleating/kdd2020/dataset/sgm/it_1/testsrc.str", 'r')
-    testtgt = open("/home/rleating/kdd2020/dataset/sgm/it_1/testtgt.str", 'r')
+    testsrc = open("/kdd2020/dataset/sgm/it_1/testsrc.str", 'r')
+    testtgt = open("/kdd2020/dataset/sgm/it_1/testtgt.str", 'r')
 
     testsrc = testsrc.readlines()
     test_src = []
@@ -45,11 +45,11 @@ def readdata():
     data["dev_y"] = test_tgt
 
     #skill vocab
-    skill_class = pkl.load(open("/home/rleating/kdd2020/dataset/it_1/skills.pkl",'rb'))
+    skill_class = pkl.load(open("/kdd2020/dataset/it_1/skills.pkl",'rb'))
     a = set([item for sublist in skill_class.values() for item in sublist])
     data["classes"] = list(a)
 
-    vocab = open("/home/rleating/kdd2020/dataset/sgm/it_1/src.dict", 'r')
+    vocab = open("/kdd2020/dataset/sgm/it_1/src.dict", 'r')
     vocab = vocab.readlines()
     word_to_idx = {}
     idx_to_word = {}
