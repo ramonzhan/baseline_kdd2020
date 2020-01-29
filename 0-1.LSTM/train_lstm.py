@@ -48,7 +48,7 @@ def parse_args():
     return args
 
 
-def around(number, deci=3):
+def around(number, deci=4):
     return np.around(number, decimals=deci)
 
 

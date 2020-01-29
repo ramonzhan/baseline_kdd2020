@@ -15,10 +15,10 @@ dataset_dir = os.path.join(root_dir, "doc2vec", data_num)
 trx_dir, try_dir = os.path.join(dataset_dir, "train_x.npy"), os.path.join(dataset_dir, "train_y.npy")
 tex_dir, tey_dir = os.path.join(dataset_dir, "test_x.npy"), os.path.join(dataset_dir, "test_y.npy")
 tr_x, tr_y, te_x, target = np.load(trx_dir), np.load(try_dir), np.load(tex_dir), np.load(tey_dir)
-classifier = LabelPowerset(classifier=LogisticRegression(solver="liblinear", n_jobs=cpu_count(), verbose=2))
+classifier = LabelPowerset(classifier=LogisticRegression(solver="liblinear", n_jobs=cpu_count()))
 classifier.fit(tr_x, tr_y)
-predict = classifier.predict(te_x).todense()
-confidence = classifier.predict_proba(te_x).todense()
+predict = classifier.predict(te_x).todense().A
+confidence = classifier.predict_proba(te_x).todense().A
 print("evaluating .... ")
 
 micro_f1 = metrics.f1_score(target, predict, average="micro")  #
