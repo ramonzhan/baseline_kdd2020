@@ -11,14 +11,14 @@ class CNN_RNN(nn.Module):
         self.GPU = kwargs["GPU"]
         self.CLASS_SIZE = kwargs["CLASS_SIZE"]
         self.WORD_DIM = kwargs["WORD_DIM"]
-        self.cnnencoder = CNN(**kwargs).cuda(self.GPU)
+        self.cnnencoder = CNN(**kwargs).to(self.GPU)
         # self.attention = AttentionLayer(**kwargs).cuda(self.GPU)
-        self.decoderCell = nn.LSTMCell(self.WORD_DIM + self.HIDDEN_DIM, self.HIDDEN_DIM).cuda(self.GPU)
-        self.decoderLinearTanh = nn.Linear(self.HIDDEN_DIM, self.HIDDEN_DIM).cuda(self.GPU)
-        self.decoderLinear = nn.Linear(self.HIDDEN_DIM, self.CLASS_SIZE).cuda(self.GPU)
+        self.decoderCell = nn.LSTMCell(self.WORD_DIM + self.HIDDEN_DIM, self.HIDDEN_DIM).to(self.GPU)
+        self.decoderLinearTanh = nn.Linear(self.HIDDEN_DIM, self.HIDDEN_DIM).to(self.GPU)
+        self.decoderLinear = nn.Linear(self.HIDDEN_DIM, self.CLASS_SIZE).to(self.GPU)
         #tgt的词表
-        self.embedding = nn.Embedding(self.CLASS_SIZE + 1, self.WORD_DIM).cuda(self.GPU)
-        self.decoderSoftmax = nn.Softmax(dim=1).cuda(self.GPU)
+        self.embedding = nn.Embedding(self.CLASS_SIZE + 1, self.WORD_DIM).to(self.GPU)
+        self.decoderSoftmax = nn.Softmax(dim=1).to(self.GPU)
 
 
     def forward(self, inp, tgt, max_len, mode = "train"):

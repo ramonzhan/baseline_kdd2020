@@ -8,6 +8,7 @@ from sklearn import metrics
 import argparse
 from precessdata import readdata, multi_hot
 from cnn_rnn import CNN_RNN
+from metrics.gene_oneerror import oneerror_gene
 
 
 def train(data, params):
@@ -45,13 +46,13 @@ def train(data, params):
             nn.utils.clip_grad_norm_(parameters, max_norm=params["NORM_LIMIT"])
             optimizer.step()
 
-        micro_f1, micro_p, micro_r, hamming_loss = \
+        micro_f1, micro_p, micro_r, hamming_loss, one_error = \
             eval(data, model, params)
 
-        print("E:[{}], F1: [{}], P: [{}], R: [{}], hloss: [{}] \t"
+        print("E:[{}], F1: [{}], P: [{}], R: [{}], hloss: [{}], one_erorr: [{}] \t"
               .format(e + 1,
                       micro_f1, micro_p, micro_r,
-                      hamming_loss
+                      hamming_loss, one_error
                       ))
 
 
@@ -63,21 +64,24 @@ def eval(data, model, params):
          for sent in x]
 
     x = Variable(torch.LongTensor(x)).cuda(params["GPU"])
-    target = multi_hot([[data["classes"].index(c) for c in inner] for inner in y], len(data["classes"]), len(y))
+    y = [[data["classes"].index(c) for c in inner] for inner in y]
+    target = multi_hot(y, len(data["classes"]), len(y))
 
     batch_y = torch.zeros((len(y), 50), dtype=torch.long).cuda(params["GPU"])
     for idx, tgt in enumerate(y):
         tgt_sl = len(tgt)
         batch_y[idx, :tgt_sl] = torch.LongTensor(tgt)
-    predict = multi_hot(model(x, batch_y, 50, "test").detach().cpu().numpy(), len(data["classes"]), len(y))
+        pred = model(x, batch_y, 50, "test").detach().cpu().numpy()
+    predict = multi_hot(pred, len(data["classes"]), len(y))
 
     print("evaluating .... ")
+    one_error = oneerror_gene(pred, y)
     micro_f1 = metrics.f1_score(target, predict, average="micro")  #
     micro_p = metrics.precision_score(target, predict, average="micro")
     micro_r = metrics.recall_score(target, predict, average="micro")
     hamming_loss = metrics.hamming_loss(target, predict)
 
-    return micro_f1, micro_p, micro_r, hamming_loss
+    return micro_f1, micro_p, micro_r, hamming_loss, one_error
 
 
 def main():
