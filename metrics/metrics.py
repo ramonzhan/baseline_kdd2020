@@ -1,5 +1,4 @@
 # coding: utf-8
-# coding: utf-8
 import numpy as np
 import scipy.io as sci
 
@@ -106,7 +105,6 @@ def Coverage(outputs, test_target):
                 temp_min = loc
         cover = cover + (class_num - temp_min)
     return (cover / test_data_num - 1) / class_num
-
 
 
 def OneError(outputs, test_target):

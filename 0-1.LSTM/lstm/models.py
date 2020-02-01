@@ -30,7 +30,7 @@ def fetch(content, ids, max_len, pad):
 
 
 class ContentLSTM(nn.Module):
-    def __init__(self, datacenter, config, device, layer=1, bidirect=False):
+    def __init__(self, datacenter, config, device, layer=2, bidirect=True):
         super(ContentLSTM, self).__init__()
         self.device = device
         self.config = config
@@ -116,13 +116,14 @@ class ContentLSTM(nn.Module):
         predict = np.delete(predict, 0, 0)
         target = np.delete(target, 0, 0)
         micro_f1 = metrics.f1_score(target, predict, average="micro")  #
-        micro_p = metrics.precision_score(target, predict, average="micro")
-        micro_r = metrics.recall_score(target, predict, average="micro")
-        micro_auc = metrics.roc_auc_score(target, confidence, average="micro")
+        # micro_p = metrics.precision_score(target, predict, average="micro")
+        # micro_r = metrics.recall_score(target, predict, average="micro")
+        # micro_auc = metrics.roc_auc_score(target, confidence, average="micro")
+        #
+        # hamming_loss = metrics.hamming_loss(target, predict)
+        # ranking_loss = metrics.label_ranking_loss(target, confidence)
+        # coverage = Coverage(confidence, target)
+        # oneerror = OneError(confidence, target)
 
-        hamming_loss = metrics.hamming_loss(target, predict)
-        ranking_loss = metrics.label_ranking_loss(target, confidence)
-        coverage = Coverage(confidence, target)
-        oneerror = OneError(confidence, target)
-
-        return micro_f1, micro_p, micro_r, micro_auc, hamming_loss, ranking_loss, coverage, oneerror
+        # return micro_f1, micro_p, micro_r, micro_auc, hamming_loss, ranking_loss, coverage, oneerror
+        return micro_f1, 0, 0, 0, 0, 0, 0, 0

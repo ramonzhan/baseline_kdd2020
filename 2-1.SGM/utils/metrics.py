@@ -2,7 +2,9 @@
 import os
 import codecs
 import numpy as np
+from metrics.gene_oneerror import oneerror_gene
 from sklearn import metrics
+
 
 
 def eval_metrics(reference, candidate, label_dict, log_path):
@@ -46,6 +48,7 @@ def eval_metrics(reference, candidate, label_dict, log_path):
                micro_f1, micro_precision, micro_recall, \
                instance_f1, instance_precision, instance_recall
 
+    one_error = oneerror_gene(candidate, reference)
     y, y_pre = prepare_label(reference, candidate, label_dict)
     hamming_loss, micro_f1, micro_precision, micro_recall, instance_f1, instance_precision, instance_recall = get_metrics(y, y_pre)
     
@@ -55,4 +58,5 @@ def eval_metrics(reference, candidate, label_dict, log_path):
             'micro_recall': micro_recall,
             'instance_f1': instance_f1,
             'instance_precision': instance_precision,
-            'instance_recall': instance_recall}
+            'instance_recall': instance_recall,
+            "one_error": one_error}
