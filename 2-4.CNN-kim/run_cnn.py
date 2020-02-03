@@ -6,12 +6,20 @@ import torch.optim as optim
 import torch.nn as nn
 from sklearn.utils import shuffle
 import argparse
-from precessdata import readdata, multi_hot
+from precessdata_cnn import readdata, multi_hot
 from sklearn import metrics
 from metrics.metrics import Coverage, OneError
 import numpy as np
+import random
+
+def set_seed(seed):
+    torch.manual_seed(seed)
+    torch.cuda.manual_seed_all(seed)
+    np.random.seed(seed)
+    random.seed(seed)
 
 
+set_seed(214)
 sigmoid = nn.Sigmoid()
 
 
@@ -41,17 +49,18 @@ def train(data, params):
             loss.backward()
             nn.utils.clip_grad_norm_(parameters, max_norm=params["NORM_LIMIT"])
             optimizer.step()
+        print("EPOCH [{}]".format(e + 1))
+        if e > 90:
+            micro_f1, micro_p, micro_r, micro_auc, hamming_loss, ranking_loss, coverage, oneerror = \
+                eval(data, model, params)
 
-        micro_f1, micro_p, micro_r, micro_auc, hamming_loss, ranking_loss, coverage, oneerror = \
-            eval(data, model, params)
-
-        print("E:[{}], F1: [{}], P: [{}], R: [{}], AUC: [{}], \n hloss: [{}], rloss: [{}] cov: [{}], oerror: [{}] \t"
-              .format(e + 1,
-                      micro_f1, micro_p, micro_r, micro_auc,
-                      hamming_loss, ranking_loss, coverage, oneerror,
-                      ))
-        if micro_f1 > max_f1:
-            max_f1 = micro_f1
+            print("E:[{}], F1: [{}], P: [{}], R: [{}], AUC: [{}], \n hloss: [{}], rloss: [{}] cov: [{}], oerror: [{}] \t"
+                  .format(e + 1,
+                          micro_f1, micro_p, micro_r, micro_auc,
+                          hamming_loss, ranking_loss, coverage, oneerror,
+                          ))
+            if micro_f1 > max_f1:
+                max_f1 = micro_f1
     print("best test f1:", max_f1)
 
 
@@ -68,7 +77,7 @@ def eval(data, model, params):
     predict = np.array(list(map(lambda x: list(map(lambda y: 1.0 if y > 0.5 else 0.0, x)), confidence)))
 
     print("evaluating .... ")
-    micro_f1 = metrics.f1_score(target, predict, average="micro")  #
+    micro_f1 = metrics.f1_score(target, predict, average="micro")  #micro_p
     micro_p = metrics.precision_score(target, predict, average="micro")
     micro_r = metrics.recall_score(target, predict, average="micro")
     micro_auc = metrics.roc_auc_score(target, confidence, average="micro")
@@ -77,14 +86,15 @@ def eval(data, model, params):
     coverage = Coverage(confidence, target)
     oneerror = OneError(confidence, target)
     return micro_f1, micro_p, micro_r, micro_auc, hamming_loss, ranking_loss, coverage, oneerror
+    # return micro_f1, 0, 0, 0, 0, 0, 0, 0
 
 
 def main():
     parser = argparse.ArgumentParser(description="-----[CNN-classifier]-----")
     parser.add_argument("--model", default="rand", help="available models: rand, static, non-static, multichannel")
-    parser.add_argument("--dataset", default="it_1", help="available datasets: MR, TREC")
+    parser.add_argument("--dataset", default="it", help="available datasets: MR, TREC")
     parser.add_argument("--epoch", default=100, type=int, help="number of max epoch")
-    parser.add_argument("--learning_rate", default=1e-3, type=float, help="learning rate")
+    parser.add_argument("--learning_rate", default=3e-3, type=float, help="learning rate")
     parser.add_argument("--gpu", default=1, type=int, help="the number of gpu to be used")
     options = parser.parse_args()
     data = readdata()
@@ -101,7 +111,7 @@ def main():
         "CLASS_SIZE": len(data["classes"]),
         "FILTERS": [3, 4, 5],
         "FILTER_NUM": [100, 100, 100],
-        "DROPOUT_PROB": 0.5,
+        "DROPOUT_PROB": 0.3,
         "NORM_LIMIT": 3,
         "GPU": options.gpu
     }

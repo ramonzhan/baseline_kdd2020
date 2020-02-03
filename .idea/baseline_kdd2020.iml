@@ -8,6 +8,7 @@
       <sourceFolder url="file://$MODULE_DIR$/2-4.CNN-kim" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/0-1.LSTM" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/2-2.CNN-RNN" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/2-6.FastText" isTestSource="false" />
     </content>
     <orderEntry type="jdk" jdkName="Remote Python 3.7.0 (sftp://ramon@192.168.129.119:22/opt/anaconda/envs/ramon_pytorch1.x/bin/python)" jdkType="Python SDK" />
     <orderEntry type="sourceFolder" forTests="false" />

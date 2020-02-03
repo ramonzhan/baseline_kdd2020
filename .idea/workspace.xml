@@ -2,9 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="187fcb2c-62f3-45cf-add2-798498f659d6" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/baseline_kdd2020.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/baseline_kdd2020.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/2-2.CNN-RNN/cnn_rnn.py" beforeDir="false" afterPath="$PROJECT_DIR$/2-2.CNN-RNN/cnn_rnn.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/0-1.LSTM/lstm/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/0-1.LSTM/lstm/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/0-1.LSTM/train_lstm.py" beforeDir="false" afterPath="$PROJECT_DIR$/0-1.LSTM/train_lstm.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/2-1.SGM/config.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/2-1.SGM/config.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/2-2.CNN-RNN/run_cnnrnn.py" beforeDir="false" afterPath="$PROJECT_DIR$/2-2.CNN-RNN/run_cnnrnn.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/2-4.CNN-kim/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/2-4.CNN-kim/precessdata.py" beforeDir="false" afterPath="$PROJECT_DIR$/2-4.CNN-kim/precessdata_cnn.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/2-4.CNN-kim/requirements.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/2-4.CNN-kim/run_cnn.py" beforeDir="false" afterPath="$PROJECT_DIR$/2-4.CNN-kim/run_cnn.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/2-6.FastText/train_fasttext.py" beforeDir="false" afterPath="$PROJECT_DIR$/2-6.FastText/train_fasttext.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -77,8 +86,8 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.run_cnnrnn">
-    <configuration name="preprocess_ft" type="PythonConfigurationType" factoryName="Python" temporary="true">
+  <component name="RunManager" selected="Python.train_lstm">
+    <configuration name="models" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="baseline_kdd2020" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -86,12 +95,12 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/2-6.FastText" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/0-1.LSTM/lstm" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/2-6.FastText/preprocess_ft.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/0-1.LSTM/lstm/models.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -100,7 +109,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="run_cnnrnn" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="run_cnn" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="baseline_kdd2020" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -108,12 +117,12 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/2-2.CNN-RNN" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/2-4.CNN-kim" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/2-2.CNN-RNN/run_cnnrnn.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/2-4.CNN-kim/run_cnn.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -190,11 +199,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.run_cnnrnn" />
-        <item itemvalue="Python.train_sgm" />
+        <item itemvalue="Python.run_cnn" />
         <item itemvalue="Python.train_lstm" />
+        <item itemvalue="Python.models" />
         <item itemvalue="Python.train_fasttext" />
-        <item itemvalue="Python.preprocess_ft" />
+        <item itemvalue="Python.train_sgm" />
       </list>
     </recent_temporary>
   </component>
@@ -215,7 +224,7 @@
       <workItem from="1580111682246" duration="217000" />
       <workItem from="1580111967519" duration="49761000" />
       <workItem from="1580298716057" duration="1412000" />
-      <workItem from="1580468389386" duration="11898000" />
+      <workItem from="1580468389386" duration="27327000" />
     </task>
     <servers />
   </component>
@@ -272,15 +281,16 @@
     </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/baseline_kdd2020$models.coverage" NAME="models Coverage Results" MODIFIED="1580722954119" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/0-1.LSTM/lstm" />
     <SUITE FILE_PATH="coverage/baseline_kdd2020$train_skmultilearn.coverage" NAME="train_skmultilearn Coverage Results" MODIFIED="1579256197871" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/1-1.BR" />
     <SUITE FILE_PATH="coverage/baseline_kdd2020$preprocess_ft.coverage" NAME="preprocess_ft Coverage Results" MODIFIED="1580203880205" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/2-6.FastText" />
-    <SUITE FILE_PATH="coverage/baseline_kdd2020$train_lstm.coverage" NAME="train_lstm Coverage Results" MODIFIED="1580302633508" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/0-1.LSTM" />
-    <SUITE FILE_PATH="coverage/baseline_kdd2020$run_cnn.coverage" NAME="run_cnn Coverage Results" MODIFIED="1580134308767" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/2-4.CNN-kim" />
+    <SUITE FILE_PATH="coverage/baseline_kdd2020$train_lstm.coverage" NAME="train_lstm Coverage Results" MODIFIED="1580729646656" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/0-1.LSTM" />
     <SUITE FILE_PATH="coverage/baseline_kdd2020$train_lp.coverage" NAME="train_lp Coverage Results" MODIFIED="1580195258762" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/1-5.LP" />
+    <SUITE FILE_PATH="coverage/baseline_kdd2020$run_cnn.coverage" NAME="run_cnn Coverage Results" MODIFIED="1580731017885" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/2-4.CNN-kim" />
     <SUITE FILE_PATH="coverage/baseline_kdd2020$train_ecc.coverage" NAME="train_ecc Coverage Results" MODIFIED="1580134017580" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/1-4.ECC" />
     <SUITE FILE_PATH="coverage/baseline_kdd2020$preprocess.coverage" NAME="preprocess Coverage Results" MODIFIED="1580120412575" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/2-1.SGM" />
     <SUITE FILE_PATH="coverage/baseline_kdd2020$train.coverage" NAME="train Coverage Results" MODIFIED="1580127560929" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/2-1.SGM" />
-    <SUITE FILE_PATH="coverage/baseline_kdd2020$train_sgm.coverage" NAME="train_sgm Coverage Results" MODIFIED="1580526962865" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/2-1.SGM" />
+    <SUITE FILE_PATH="coverage/baseline_kdd2020$train_sgm.coverage" NAME="train_sgm Coverage Results" MODIFIED="1580638055738" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/2-1.SGM" />
     <SUITE FILE_PATH="coverage/baseline_kdd2020$test__1_.coverage" NAME="test (1) Coverage Results" MODIFIED="1580125696514" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/1-2.CC" />
     <SUITE FILE_PATH="coverage/baseline_kdd2020$train_skmultilearn__1_.coverage" NAME="train_skmultilearn (1) Coverage Results" MODIFIED="1579254621265" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/1-2.CC" />
     <SUITE FILE_PATH="coverage/baseline_kdd2020$test.coverage" NAME="test Coverage Results" MODIFIED="1580135149028" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/1-4.ECC" />
@@ -291,7 +301,7 @@
     <SUITE FILE_PATH="coverage/baseline_kdd2020$train__1_.coverage" NAME="train (1) Coverage Results" MODIFIED="1580135286199" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/1-5.LP" />
     <SUITE FILE_PATH="coverage/baseline_kdd2020$main_GPU.coverage" NAME="main_GPU Coverage Results" MODIFIED="1579271183062" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/1-3.CAMEL/camel_src" />
     <SUITE FILE_PATH="coverage/baseline_kdd2020$run_cnnrnn.coverage" NAME="run_cnnrnn Coverage Results" MODIFIED="1580533557039" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/2-2.CNN-RNN" />
-    <SUITE FILE_PATH="coverage/baseline_kdd2020$train_fasttext.coverage" NAME="train_fasttext Coverage Results" MODIFIED="1580208957004" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/2-6.FastText" />
+    <SUITE FILE_PATH="coverage/baseline_kdd2020$train_fasttext.coverage" NAME="train_fasttext Coverage Results" MODIFIED="1580721094524" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/2-6.FastText" />
     <SUITE FILE_PATH="coverage/baseline_kdd2020$train__3_.coverage" NAME="train (3) Coverage Results" MODIFIED="1580125200169" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/1-2.CC" />
   </component>
 </project>

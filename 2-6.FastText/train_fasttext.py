@@ -13,9 +13,9 @@ parser = argparse.ArgumentParser(description='preprocess.py')
 parser.add_argument('-data_dir', type=str, default="/kdd2020/dataset/fasttext/it_1/")
 parser.add_argument('-lr', type=float, default=1e-3)
 parser.add_argument('-epoch', type=int, default=20)
-parser.add_argument('-dim', type=int, default=300)
+parser.add_argument('-dim', type=int, default=256)
 parser.add_argument('-prefix', type=str, default="_label_")
-parser.add_argument('-k', type=int, default=20)
+parser.add_argument('-k', type=int, default=15)
 opt = parser.parse_args()
 
 

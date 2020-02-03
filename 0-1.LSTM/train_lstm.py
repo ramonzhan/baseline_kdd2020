@@ -28,7 +28,7 @@ def parse_args():
     parser.add_argument("--root_dir", help="the root dir", type=str, default="../../")
     parser.add_argument("--dataset", help="the dir of all the used datasets", type=str, default="dataset")
     parser.add_argument("--results", help="the results dir", type=str, default="results")
-    parser.add_argument("--data_num", help="the used dataset dir", type=str, default="it_1")
+    parser.add_argument("--data_num", help="the used dataset dir", type=str, default="it_3")
     # data
     parser.add_argument("--traindict", help="train, key-jd idx, value-skill idx list", type=str, default="skills.pkl")
     parser.add_argument("--testdict", help="test, key-jd idx, value-skill idx list", type=str, default="skills.pkl")
@@ -118,20 +118,21 @@ def main_lstm(args):
                 t.update()
 
         # 标签分类结果
-        micro_f1, micro_p, micro_r, micro_auc, hamming_loss, ranking_loss, coverage, oneerror = \
-            model.evaluate(test_jd_nodes, traindict)
-        results_file = "results_lstm.txt"
-        minute = np.around((time.time() - start) / 60, decimals=4)
-        ls = np.mean(avg_loss)
-        print("E:[{}/{}], F1: [{}], P: [{}], R: [{}], AUC: [{}], \n hloss: [{}], rloss: [{}] cov: [{}], oerror: [{}] \t"
-              "time: [{} mins]"
-              .format(e, around(ls, 2),
-                      around(micro_f1), around(micro_p), around(micro_r), around(micro_auc),
-                      around(hamming_loss), around(ranking_loss), around(coverage), around(oneerror),
-                      minute))
+        if e > 60:
+            micro_f1, micro_p, micro_r, micro_auc, hamming_loss, ranking_loss, coverage, oneerror = \
+                model.evaluate(test_jd_nodes, traindict)
+            results_file = "results_lstm.txt"
+            minute = np.around((time.time() - start) / 60, decimals=4)
+            ls = np.mean(avg_loss)
+            print("E:[{}/{}], F1: [{}], P: [{}], R: [{}], AUC: [{}], \n hloss: [{}], rloss: [{}] cov: [{}], oerror: [{}] \t"
+                  "time: [{} mins]"
+                  .format(e, around(ls, 2),
+                          around(micro_f1), around(micro_p), around(micro_r), around(micro_auc),
+                          around(hamming_loss), around(ranking_loss), around(coverage), around(oneerror),
+                          minute))
 
-        avg_loss.clear()
-        gc.collect()
+            avg_loss.clear()
+            gc.collect()
 
 if __name__ == "__main__":
     main_lstm(parse_args())

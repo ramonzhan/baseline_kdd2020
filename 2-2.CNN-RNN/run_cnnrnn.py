@@ -6,7 +6,7 @@ import torch.nn as nn
 from sklearn.utils import shuffle
 from sklearn import metrics
 import argparse
-from precessdata import readdata, multi_hot
+from precessdata_cnn import readdata, multi_hot
 from cnn_rnn import CNN_RNN
 from metrics.gene_oneerror import oneerror_gene
 
